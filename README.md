@@ -1,1 +1,1 @@
-# Text-summarizer
+# Text Summarizer
