@@ -11,6 +11,7 @@ sys.path.insert(0, str(src_dir))
 # Now you can import from your package
 from textSummarizer.pipeline.stage1 import DataIngestionTrainingPipeline
 from textSummarizer.logging import logger
+from textSummarizer.pipeline.stage2 import DataValidationTrainingPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 
