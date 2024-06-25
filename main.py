@@ -12,6 +12,8 @@ sys.path.insert(0, str(src_dir))
 from textSummarizer.pipeline.stage1 import DataIngestionTrainingPipeline
 from textSummarizer.logging import logger
 from textSummarizer.pipeline.stage2 import DataValidationTrainingPipeline
+from textSummarizer.pipeline.stage3 import DataTransformationTrainingPipeline
+from textSummarizer.pipeline.stage4 import ModelTrainerTrainingPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 
@@ -34,3 +36,26 @@ try:
 except Exception as e:
     logger.exception(e)
     raise e
+
+
+STAGE_NAME = "Data Transformation stage"
+
+try:
+    logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<") 
+    data_transformation = DataTransformationTrainingPipeline()
+    data_transformation.main()
+    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+STAGE_NAME = "Model Trainer stage"
+try: 
+   logger.info(f"*******************")
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+   model_trainer = ModelTrainerTrainingPipeline()
+   model_trainer.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+except Exception as e:
+        logger.exception(e)
+        raise e
